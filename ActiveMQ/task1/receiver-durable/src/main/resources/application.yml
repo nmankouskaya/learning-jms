@@ -12,4 +12,3 @@ spring:
       concurrency: 2
       max-concurrency: 2
     pub-sub-domain: true
-

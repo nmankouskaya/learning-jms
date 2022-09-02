@@ -11,5 +11,6 @@ spring:
       auto-startup: true
       concurrency: 2
       max-concurrency: 2
+      client-id:
     pub-sub-domain: true
 
