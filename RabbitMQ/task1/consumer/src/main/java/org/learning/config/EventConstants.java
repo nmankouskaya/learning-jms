@@ -13,7 +13,5 @@ public class EventConstants {
 
     // Queue names
     public static final String QUEUE_CREATE_NOTIFICATION = "QUEUE_CREATE_NOTIFICATION";
-    public static final String QUEUE_FAILED_NOTIFICATION = "QUEUE_CREATE_NOTIFICATION";
-    public static final String QUEUE_NOTIFICATION_WAIT = "QUEUE_NOTIFICATION_WAIT";
     public static final String DEAD_LETTER_QUEUE = "QUEUE_DEAD_LETTER";
 }

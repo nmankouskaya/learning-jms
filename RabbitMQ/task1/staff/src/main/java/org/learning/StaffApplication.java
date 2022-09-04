@@ -4,7 +4,6 @@ import org.learning.datastore.Datastore;
 import org.learning.event.EventStatus;
 import org.learning.event.NotificationEvent;
 import org.learning.service.EventPublisher;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -57,10 +56,12 @@ public class StaffApplication {
                         Optional.ofNullable(recordNumber).ifPresent(id -> {
                             if (splitResult[1].equalsIgnoreCase(EventStatus.RETURN.name())) {
                                 allNotifications.get(id).setType(splitResult[1]);
+                                allNotifications.get(id).setModifiedDateTime(LocalDateTime.now());
                                 eventPublisher.publish(allNotifications.get(id));
                                 allNotifications.remove(id);
                             } else if (splitResult[1].equalsIgnoreCase(EventStatus.ARCHIVE.name())) {
                                 allNotifications.get(id).setType(splitResult[1]);
+                                allNotifications.get(id).setModifiedDateTime(LocalDateTime.now());
                             } else {
                                 System.out.println("Incorrect format");
                             }

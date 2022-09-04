@@ -9,6 +9,7 @@ import org.springframework.amqp.core.QueueBuilder;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.Map;
 
 @Component
 public class RabbitConfig {
@@ -35,7 +36,7 @@ public class RabbitConfig {
                 .with(EventConstants.DEAD_LETTER_QUEUE)
                 .and(null));
 
-        // create asset
+        // CREATE NOTIFICATION
         Exchange createNotificationExchange = new DirectExchange(EventConstants.EXCHANGE_CREATE_NOTIFICATION);
         amqpAdmin.declareExchange(createNotificationExchange);
         Queue createNotificationQueue = QueueBuilder
@@ -49,7 +50,7 @@ public class RabbitConfig {
                 .bind(createNotificationQueue)
                 .to(createNotificationExchange)
                 .with(EventConstants.CREATE_NOTIFICATION)
-                .and(null));
+                .and(Map.of("x-max-length", 5)));
 
         // NOTIFICATION WAIT
         Exchange notificationWait = new DirectExchange(EventConstants.EXCHANGE_NOTIFICATION_WAIT);

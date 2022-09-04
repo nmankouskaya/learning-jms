@@ -20,8 +20,4 @@ public class EventPublisher {
     public void publishToWait(NotificationEvent event) {
         rabbitTemplate.convertAndSend(EventConstants.EXCHANGE_NOTIFICATION_WAIT, EventConstants.NOTIFICATION_WAIT, event);
     }
-
-    public void publishDLQ(NotificationEvent event) {
-        rabbitTemplate.convertAndSend(EventConstants.EXCHANGE_DLQ, EventConstants.DEAD_LETTER_QUEUE, event);
-    }
 }
