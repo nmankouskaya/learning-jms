@@ -1,0 +1,16 @@
+learning:
+  rabbitmq:
+    listener:
+      custom:
+        retry:
+          backoff-initial-interval: 30000
+          backoff-multiplier: 1
+          backoff-max-interval: 60000
+          max-attempts: 2
+
+spring:
+  rabbitmq:
+    listener:
+      simple:
+        retry:
+          enabled: true

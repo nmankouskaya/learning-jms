@@ -1,0 +1,13 @@
+learning:
+  messaging:
+    retry:
+      waiting:
+        time: 600000
+    max:
+      retry:
+        count: 5
+spring:
+  rabbitmq:
+    listener:
+      simple:
+        default-requeue-rejected: false
