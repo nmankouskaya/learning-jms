@@ -6,7 +6,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
@@ -17,8 +16,6 @@ import static org.learning.kafka.KafkaConstants.*;
 
 @Component
 public class KafkaSimpleProducer {
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendToKafka(TransportMetadata transportMetadata) {
 
