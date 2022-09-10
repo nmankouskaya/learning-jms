@@ -33,8 +33,8 @@ target/
 !**/src/test/**/target/
 
 # gradle
-*.gradle
-build*
+**/build/
+.gradle
 
 
 ### STS ###
