@@ -1,0 +1,27 @@
+logging:
+  level:
+    root: INFO
+server:
+  port: 9090
+
+spring:
+  kafka:
+    streams:
+      bootstrap-servers:
+        - localhost:9092
+      application-id: kafka-streams
+      properties:
+        default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+        default.value.serde: org.learning.dto.CustomSerdes$EmployeeSerde
+    client-id : kafka-app
+    bootstrap-servers:
+      - localhost:9092
+    template:
+      default-topic: task4
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.learning.dto.JsonSerializer
+
+kafka:
+  topic:
+    topic4: task4
